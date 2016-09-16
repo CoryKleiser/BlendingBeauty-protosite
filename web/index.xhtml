@@ -4,7 +4,7 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 </h:head>
@@ -18,7 +18,7 @@
       <ui:define name="header">
             <h:form>
                <label>Search: </label>
-               <p:inputText value="#{searchEntry.value}"/>
+               <p:autoComplete value="#{searchEntry.value}" completeMethod="#{siteSearch.completeEntry}"/>
                <!--TODO:: Fix primefaces issue on commandButton-->
                <h:commandButton value="Submit" action="#{siteSearch.execute()}"/>
             </h:form>
@@ -34,7 +34,7 @@
          <h3>Hello, <h:outputLabel value="#{userData.name}"/>!&nbsp;
             Click on <em>Videos</em> to check out my tutorials and product reviews.</h3>
 
-         <h:link value="Contact" outcome="contact.xhtml"/>
+         <h:link outcome="contact.xhtml"  value="Contact"/>
 
       </ui:define>
    </ui:composition>
