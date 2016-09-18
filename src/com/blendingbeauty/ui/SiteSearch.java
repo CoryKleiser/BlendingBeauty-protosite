@@ -27,7 +27,7 @@ public class SiteSearch {
         }
     }
 
-    public List<SearchEntry> completeEntry(String Query){
+    public List<SearchEntry> completeEntry(SearchEntry Query){
         ArrayList<SearchEntry> keywords = new ArrayList<SearchEntry>();
 
         //find keywords and add to selection
