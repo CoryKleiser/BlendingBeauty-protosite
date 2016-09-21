@@ -11,27 +11,10 @@ import org.junit.Test;
 public class TestSearchEntry extends TestCase {
 
 
-    private SearchEntry searchEntry;
     private SiteSearch siteSearch;
+    private SearchEntry searchEntry;
     private String execute;
 
-    @Test
-    public void testSearchEntryNoResults(){
-        givenSearchEntryWithNoResults();
-        whenInvokeExecute();
-        thenVerifyReturnNoResults();
-    }
-
-    private void thenVerifyReturnNoResults() {
-        assertEquals("no results", execute);
-    }
-
-    private void givenSearchEntryWithNoResults() {
-        siteSearch = new SiteSearch();
-        searchEntry = new SearchEntry();
-        searchEntry.setValue("xxxxx");
-        siteSearch.completeEntry(searchEntry);
-    }
 
     @Test
     public void testSearchEntryExecute(){
@@ -40,19 +23,11 @@ public class TestSearchEntry extends TestCase {
         thenVerifyReturnSuccess();
     }
 
-    private void thenVerifyReturnSuccess() {
-        assertEquals("success", execute);
-    }
-
-    private void whenInvokeExecute() {
-        execute = siteSearch.execute();
-    }
-
-    private void giveSearchEntryCreatedWithKeywords() {
-        siteSearch = new SiteSearch();
-        searchEntry = new SearchEntry();
-        searchEntry.setValue("eye");
-        siteSearch.completeEntry(searchEntry);
+    @Test
+    public void testSearchEntryNoResults(){
+        givenSearchEntryWithNoResults();
+        whenInvokeExecute();
+        thenVerifyReturnNoResults();
     }
 
     @Test
@@ -62,7 +37,33 @@ public class TestSearchEntry extends TestCase {
         thenVerifyReturnNoResults();
     }
 
+    private void giveSearchEntryCreatedWithKeywords() {
+        siteSearch = new SiteSearch();
+        searchEntry = new SearchEntry();
+        searchEntry.setValue("eye");
+        siteSearch.setEntry(searchEntry);
+    }
+
+    private void givenSearchEntryWithNoResults() {
+        siteSearch = new SiteSearch();
+        searchEntry = new SearchEntry();
+        searchEntry.setValue("no results");
+        siteSearch.setEntry(searchEntry);
+    }
+
     private void givenSiteSearchCreatedWithNullKeywords() {
         siteSearch = new SiteSearch();
+    }
+
+    private void whenInvokeExecute() {
+        execute = siteSearch.execute();
+    }
+
+    private void thenVerifyReturnSuccess() {
+        assertEquals("results", execute);
+    }
+
+    private void thenVerifyReturnNoResults() {
+        assertEquals("noResults", execute);
     }
 }

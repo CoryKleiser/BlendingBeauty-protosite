@@ -4,12 +4,14 @@ import com.blendingbeauty.dao.ISearchDAO;
 import com.blendingbeauty.dto.SearchEntry;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Cory Kleiser
  */
+@Named
 public class SearchService implements ISearchService{
 
     public ISearchDAO getSearchDAO() {

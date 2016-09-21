@@ -15,7 +15,7 @@ public interface ISearchService {
      * @param filter a substring that should be contained in returned text
      * @return a collection of search terms containing filtered text
      */
-    public List<SearchEntry> filterKeywords(String filter);
+    List<SearchEntry> filterKeywords(String filter);
 
 
 }

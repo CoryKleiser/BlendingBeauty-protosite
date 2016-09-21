@@ -1,6 +1,7 @@
 package com.blendingbeauty.ui;
 
 import com.blendingbeauty.dto.SearchEntry;
+import com.blendingbeauty.service.ISearchService;
 import org.springframework.context.annotation.Scope;
 
 import javax.annotation.ManagedBean;
@@ -18,8 +19,11 @@ public class SiteSearch {
     @Inject
     private SearchEntry searchEntry;
 
+    @Inject
+    private ISearchService searchService;
+
     public String execute(){
-        if(searchEntry != null && !searchEntry.getValue().equalsIgnoreCase("fuck")){
+        if(searchEntry != null && !searchEntry.getValue().equalsIgnoreCase("no results")){
             return "results";
         }
         else{
@@ -27,34 +31,12 @@ public class SiteSearch {
         }
     }
 
-    public List<SearchEntry> completeEntry(SearchEntry Query){
-        ArrayList<SearchEntry> keywords = new ArrayList<SearchEntry>();
-
-        //find keywords and add to selection
-        SearchEntry lipstick = new SearchEntry();
-        lipstick.setValue("lipstick");
-        keywords.add(lipstick);
-
-        SearchEntry blush = new SearchEntry();
-        blush.setValue("blush");
-        keywords.add(blush);
-
-        SearchEntry eyeshadow = new SearchEntry();
-        eyeshadow.setValue("eyeshadow");
-        keywords.add(eyeshadow);
-
-        SearchEntry contour = new SearchEntry();
-        contour.setValue("contour");
-        keywords.add(contour);
-
-        SearchEntry eyeliner = new SearchEntry();
-        eyeliner.setValue("eyeliner");
-        keywords.add(eyeliner);
-
-        SearchEntry eyelashes = new SearchEntry();
-        eyelashes.setValue("eyelashes");
-        keywords.add(eyelashes);
-
-        return keywords;
+    public void setEntry(SearchEntry searchEntry){
+        this.searchEntry = searchEntry;
     }
+
+    public List<SearchEntry> completeEntry(String query){
+        return searchService.filterKeywords(query);
+    }
+
 }
