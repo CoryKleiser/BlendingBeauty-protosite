@@ -18,4 +18,10 @@ public interface ISearchService {
     List<SearchEntry> filterKeywords(String filter);
 
 
+    /**
+     * Saves Keyword to server for future client queries
+     * @param searchEntry the keyword we are persisting
+     * @throws Exception unable to save
+     */
+    void saveKeyword(SearchEntry searchEntry) throws Exception;
 }

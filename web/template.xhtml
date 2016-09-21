@@ -17,6 +17,20 @@
 <h:body>
     <div id="header">
         <ui:insert name="header">header content</ui:insert>
+        <p:menubar>
+            <p:menuitem value="Home" url="index.xhtml" />
+            <p:submenu label="Administration">
+                <p:menuitem value="Add Content" url="addcontent.xhtml"/>
+            </p:submenu>
+            <p:menuitem value="Contact" url="contact.xhtml" />
+        </p:menubar>
+
+        <h:form>
+            <label>Search: </label>
+            <p:autoComplete value="#{searchEntry.value}" completeMethod="#{siteSearch.completeEntry}"/>
+            <!--TODO:: Fix primefaces issue on commandButton-->
+            <p:commandButton value="Submit" action="#{siteSearch.execute()}"/>
+        </h:form>
     </div>
 
     <div id="content">
@@ -25,7 +39,7 @@
     <div id="footer">
         <ui:insert name="footer">
             Copyright Cory Kleiser 2016
-            <h:link outcome="privacy" value="Privacy policy and terms of use"/>
+            <h:link outcome="terms.xhtml" value="Privacy policy and terms of use"/>
         </ui:insert>
     </div>
 </h:body>

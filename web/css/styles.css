@@ -8,17 +8,20 @@
     #header{
         position: fixed;
         vertical-align: top;
+        padding: 10px;
         background-color: #333;
         color: #a7cccc;
         width:100%;
         z-index: 100;
         left: 0;
         top: 0;
+        display: inline-flex;
     }
 
     #header form{
-        padding:10px;
-        float: right;
+        position: absolute;
+        padding: 5px 5px 0 0;
+        right: 20px;
     }
 
     #content{

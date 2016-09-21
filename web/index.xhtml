@@ -16,12 +16,6 @@
       </ui:define>
 
       <ui:define name="header">
-            <h:form>
-               <label>Search: </label>
-               <p:autoComplete value="#{searchEntry.value}" completeMethod="#{siteSearch.completeEntry}"/>
-               <!--TODO:: Fix primefaces issue on commandButton-->
-               <h:commandButton value="Submit" action="#{siteSearch.execute()}"/>
-            </h:form>
       </ui:define>
 
       <ui:define name="content">

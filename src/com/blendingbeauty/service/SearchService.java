@@ -47,4 +47,9 @@ public class SearchService implements ISearchService{
         //return
         return returnKeywords;
     }
+
+    @Override
+    public void saveKeyword(SearchEntry searchEntry) throws Exception {
+        searchDAO.insert(searchEntry);
+    }
 }

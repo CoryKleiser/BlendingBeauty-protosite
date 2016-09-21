@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+</h:head>
+<h:body>
+    <ui:composition template="template.xhtml">
+
+        <ui:define name="title">
+            Add Content Here...
+        </ui:define>
+
+        <ui:define name="header">
+        </ui:define>
+
+        <ui:define name="content">
+            <h1>Add Content to Blending Beauty</h1>
+
+
+            <h3>Hello, <h:outputLabel value="#{userData.name}"/>!&nbsp;
+                You will add videos to your website here.</h3>
+
+            <h:form>
+
+                <h:outputLabel value="Keywords"/><p:inputText value="#{searchEntry.value}"/>
+
+                <p:commandButton value="Submit" action="#{addSiteContent.execute()}"/>
+            </h:form>
+
+            <h:link outcome="contact.xhtml"  value="Contact"/>
+
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
