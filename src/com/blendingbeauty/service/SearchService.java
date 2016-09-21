@@ -50,6 +50,9 @@ public class SearchService implements ISearchService{
 
     @Override
     public void saveKeyword(SearchEntry searchEntry) throws Exception {
+        if (searchEntry.getValue() == null || searchEntry.getValue().isEmpty()){
+            throw new Exception("Keywords Required");
+        }
         searchDAO.insert(searchEntry);
     }
 }

@@ -27,9 +27,13 @@
 
             <h:form>
 
+                <p:growl id="growl" showDetail="true" sticky="false"/>
+
                 <h:outputLabel value="Keywords"/><p:inputText value="#{searchEntry.value}"/>
 
-                <p:commandButton value="Submit" action="#{addSiteContent.execute()}"/>
+                <p:commandButton value="Submit"
+                                 action="#{addSiteContent.execute()}"
+                                 update="growl"/>
             </h:form>
 
             <h:link outcome="contact.xhtml"  value="Contact"/>
