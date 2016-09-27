@@ -19,20 +19,22 @@
         </ui:define>
 
         <ui:define name="content">
-            <h1>Add Content to Blending Beauty</h1>
+            <h1>Blending Beauty</h1>
 
-
-            <h3>Hello, <h:outputLabel value="#{userData.name}"/>!&nbsp;
-                You will add videos to your website here.</h3>
+            <h2>Become a member</h2>
 
             <h:form>
+                <!--TODO:: FINISH CONVERTING TO NEW USER FORM-->
 
                 <p:growl id="growl" showDetail="true" sticky="false"/>
 
-                <h:outputLabel value="Keywords"/><p:inputText value="#{searchEntry.value}"/>
+                <h:outputLabel value="Name"/><p:inputText value="#{userData.name}"/>
+                <h:outputLabel value="User Name"/><p:inputText value="#{userData.userName}"/>
+                <h:outputLabel value="Password"/><p:inputText value="#{userData.password}"/>
+                <h:outputLabel value="Email"/><p:inputText value="#{userData.email}"/>
 
                 <p:commandButton value="Submit"
-                                 action="#{addSiteContent.execute()}"
+                                 action="#{addUser.execute()}"
                                  update="growl"/>
             </h:form>
 
