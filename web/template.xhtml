@@ -16,7 +16,7 @@
 </h:head>
 <h:body>
     <div id="header">
-        <ui:insert name="header">header content</ui:insert>
+
         <p:menubar>
             <p:menuitem value="Home" url="index.xhtml" />
             <p:submenu label="Administration">
@@ -31,9 +31,14 @@
             <!--TODO:: Fix primefaces issue on commandButton-->
             <p:commandButton value="Submit" action="#{siteSearch.execute()}"/>
         </h:form>
+
+
+
     </div>
 
     <div id="content">
+        <ui:insert name="header"></ui:insert>
+
         <ui:insert name="content">main content</ui:insert>
     </div>
     <div id="footer">
