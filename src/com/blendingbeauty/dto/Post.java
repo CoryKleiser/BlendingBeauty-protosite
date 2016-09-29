@@ -14,7 +14,7 @@ import javax.inject.Named;
 public class Post{
 
     private String title;
-    private String topics;
+    private String topic;
     private String content;
     private String author;
     private int guid;
@@ -27,12 +27,12 @@ public class Post{
         this.title = title;
     }
 
-    public String getTopics() {
-        return topics;
+    public String getTopic() {
+        return topic;
     }
 
-    public void setTopics(String topics) {
-        this.topics = topics;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
     public String getContent() {
@@ -54,7 +54,7 @@ public class Post{
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return title + "  " + topics + " " + content + " " + author;
+        return title + "  " + topic + " " + content + " " + author;
     }
 
     public int getGuid() {
